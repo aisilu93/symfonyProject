@@ -1,0 +1,4 @@
+services:
+#    first.example:
+#        class: firstspace\BlogBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
