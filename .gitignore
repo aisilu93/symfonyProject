@@ -1,47 +1,48 @@
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
+# Cache and logs (Symfony2)
+/app/cache/*
+/app/logs/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
 
-# Folder config file
-Desktop.ini
+# Email spool folder
+/app/spool/*
 
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
+# Cache, session files and logs (Symfony3)
+/var/cache/*
+/var/logs/*
+/var/sessions/*
+!var/cache/.gitkeep
+!var/logs/.gitkeep
+!var/sessions/.gitkeep
 
-# Windows Installer files
-*.cab
-*.msi
-*.msm
-*.msp
+# Parameters
+/app/config/parameters.yml
+/app/config/parameters.ini
 
-# Windows shortcuts
-*.lnk
+# Managed by Composer
+/app/bootstrap.php.cache
+/var/bootstrap.php.cache
+/bin/*
+!bin/console
+!bin/symfony_requirements
+/vendor/
 
-# =========================
-# Operating System Files
-# =========================
+# Assets and user uploads
+/web/bundles/
+/web/uploads/
 
-# OSX
-# =========================
+# Assets managed by Bower
+/web/assets/vendor/
 
-.DS_Store
-.AppleDouble
-.LSOverride
+# PHPUnit
+/app/phpunit.xml
+/phpunit.xml
 
-# Thumbnails
-._*
+# Build data
+/build/
 
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
+# Composer PHAR
+/composer.phar
 
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
+# Backup entities generated with doctrine:generate:entities command
+*/Entity/*~
