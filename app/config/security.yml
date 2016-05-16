@@ -16,12 +16,12 @@ security:
     firewalls:
         main:
             pattern: ^/
-            #form_login:
-             #   provider: fos_userbundle
-             #   csrf_token_generator: security.csrf.token_manager
+            form_login:
+                provider: fos_userbundle
+                csrf_token_generator: security.csrf.token_manager
             logout: true
             anonymous: ~
-            http_basic: ~
+            #http_basic: ~
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }

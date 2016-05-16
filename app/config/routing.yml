@@ -3,7 +3,7 @@ first:
     prefix:   /
 
 app:
-    resource: "@AppBundle/Controller/"
+    resource: "@firstBundle/Controller/"
     type:     annotation
   
 fos_user_security:

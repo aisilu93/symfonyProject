@@ -6,10 +6,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+
 class DefaultController extends Controller
 {
 	 /**
-     * @Route("/admin", name="homepage")
+     * @Route("/admin")
      */
     public function indexAction()
     {
@@ -18,6 +19,8 @@ class DefaultController extends Controller
 	
 	public function adminAction()
     {
+		$roles = $this->get('first.security.roles')->getRoles();
+		print_r($roles);
         return new Response('<html><body>Admin page!</body></html>');
     }
 }
