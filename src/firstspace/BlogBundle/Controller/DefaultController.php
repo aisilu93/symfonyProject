@@ -2,7 +2,7 @@
 
 namespace firstspace\BlogBundle\Controller;
 
-//use firstspace\BlogBundle\Entity\User;
+use firstspace\BlogBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -15,9 +15,11 @@ class DefaultController extends Controller
      */
 	public function pageAction($id)
     {
+		//$query = array ('id' => $id, 'roles' => $_GET);
 		$user = $this -> getDoctrine()
-			->getRepository('BlogBundle:User')
-			->find($id);
-			return new Response('<html><body>Admin page!</body></html>');
+			->getRepository('firstBundle:User')
+			->findOneById($id)->getRoles();
+		$role = implode(', ',$user);
+		return new Response ('<html><body>User`s role is '.$role.'</body></html>');
     }
 }
