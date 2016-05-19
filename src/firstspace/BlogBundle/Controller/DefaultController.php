@@ -15,12 +15,15 @@ class DefaultController extends Controller
      */
 	public function getRoleById($id)
     {
+		if ($this->getUser()){
 		//$query = array ('id' => $id, 'roles' => $_GET);
-		$user = $this -> getDoctrine()
-			->getRepository('firstBundle:User')
-			->findOneById($id)->getRoles();
-		$role = implode(', ',$user);
-		return new Response ('<html><body>User`s role is '.$role.'</body></html>');
+			$user = $this -> getDoctrine()
+				->getRepository('firstBundle:User')
+				->findOneById($id)->getRoles();
+			$role = implode(', ',$user);
+			return new Response ('<html><body>User`s role is '.$role.'</body></html>');
+		}
+		else return new Response ('<html><body>Hello, Guest!</body></html>');
     }
 	
 	 /**
@@ -28,7 +31,11 @@ class DefaultController extends Controller
      */
 	public function getRoleOfCurrentUser()
 	{
-		$role = implode(', ', $this->getUser()->getRoles());
-		return new Response ('<html><body>User`s role is '.$role.'</body></html>');
+		if ($this->getUser()){
+			$role = implode(', ', $this->getUser()->getRoles());
+			return new Response ('<html><body>User`s role is '.$role.'</body></html>');
+		}
+		else return new Response ('<html><body>Hello, Guest!</body></html>');
 	}
+	
 }
