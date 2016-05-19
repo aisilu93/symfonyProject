@@ -13,7 +13,7 @@ class DefaultController extends Controller
 	 /**
      * @Route("/user/{id}")
      */
-	public function pageAction($id)
+	public function getRoleById($id)
     {
 		//$query = array ('id' => $id, 'roles' => $_GET);
 		$user = $this -> getDoctrine()
@@ -22,4 +22,13 @@ class DefaultController extends Controller
 		$role = implode(', ',$user);
 		return new Response ('<html><body>User`s role is '.$role.'</body></html>');
     }
+	
+	 /**
+     * @Route("/user/")
+     */
+	public function getRoleOfCurrentUser()
+	{
+		$role = implode(', ', $this->getUser()->getRoles());
+		return new Response ('<html><body>User`s role is '.$role.'</body></html>');
+	}
 }
