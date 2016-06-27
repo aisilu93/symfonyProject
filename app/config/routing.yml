@@ -1,3 +1,8 @@
+car_blog:
+    resource: "@CarBlogBundle/Controller/"
+    type:     annotation
+    prefix:   /car
+
 first:
     resource: "@firstBundle/Resources/config/routing.yml"
     prefix:   /
