@@ -6,6 +6,7 @@ use CarBlogBundle\Entity\Posts;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
 
 class DefaultController extends Controller
@@ -25,11 +26,11 @@ class DefaultController extends Controller
 		$base = $this->getDoctrine()->getRepository('CarBlogBundle:Posts');
 		$news = $base->findAll();
 		foreach (array_reverse($news) as $key=>$value){
-			print_r($value->getDate()->format('Y-m-d H:i:s')."  ");
-			print_r($value->getNews()."<br>");
+			$date = $value->getDate()->format('Y-m-d H:i:s')."  ";
+			$post = $value->getNews();
 			
 		}
-		return new Response();
+		return $this->render('CarBlog/homepage.html.twig', array('date'=>$date, 'post'=>$post));
 	}
 	
 }
