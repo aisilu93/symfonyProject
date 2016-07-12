@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new firstspace\BlogBundle\firstBundle(),
 			new FOS\UserBundle\FOSUserBundle(),
             new CarBlogBundle\CarBlogBundle(),
+			new Symfony\Bundle\AsseticBundle\AsseticBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
