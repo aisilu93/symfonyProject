@@ -21,8 +21,10 @@
     ****************************************************************************-->
     </footer>
 </div>
-	<h2>{{date}} </h2>
+{% for date, post in result_base %}
+	<h2>{{date}}</h2>
 	<article>{{post}}</article>
+{% endfor %}
 <div id="footerbar"><!-- Small footerbar at the bottom --></div>
 </div>
 </body>

@@ -25,12 +25,15 @@ class DefaultController extends Controller
 	{
 		$base = $this->getDoctrine()->getRepository('CarBlogBundle:Posts');
 		$news = $base->findAll();
+		$result_base = array();
 		foreach (array_reverse($news) as $key=>$value){
 			$date = $value->getDate()->format('Y-m-d H:i:s')."  ";
 			$post = $value->getNews();
+			$result_base+= array($date => $post);
 			
-		}
-		return $this->render('CarBlog/homepage.html.twig', array('date'=>$date, 'post'=>$post));
+		} 
+		//print_r($result_base);
+		return $this->render('CarBlog/homepage.html.twig', array('result_base' => $result_base));
 	}
 	
 }
